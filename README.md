@@ -9,13 +9,13 @@ It is a synthetic model, not a backtest on market data.
 
 ## Results
 
-**Simulation studies ([report](report/REPORT.md)).** At a 10p half-spread, across four markets, fixed quotes had the highest mean P&L. More skew reduced inventory and P&L variability but did not reduce losing runs or tail losses. With informed customers the market maker lost money despite earning a positive edge on every trade: the attribution shows that adverse price moves after informed trades outweigh the edge.
+**Monte Carlo studies ([report](report/REPORT.md)).** At a 10p half-spread, fixed quotes had the highest sample mean P&L in all four markets. More skew reduced inventory and P&L variability but did not consistently reduce losing runs or tail losses. With informed customers, the market maker lost money despite a positive edge at execution: the P&L attribution shows that adverse price moves after informed trades outweigh that edge.
 
 **Exact analysis ([report](report/EXACT_ANALYSIS.md)).** Money is stored in integer pence and inventory is capped at ±3, so (inventory, P&L) is a Markov chain on a finite grid. That means the exact distribution of final P&L can be computed instead of estimated from random runs. Doing so:
 
-- confirms the simulations: every saved 500-run result agrees with the exact value within its error bars;
-- shows that the 10p spread used in the studies was the real constraint;
-- shows that once the spread is chosen well, skew helps in the buyer-heavy markets.
+- checks the simulations: across the 16 market/skew settings, 12 of the 16 conventional 95% intervals for the sample mean contain the exact mean, and every sample mean is within 2.9 standard errors of it. All four misses are in the informed market, whose settings share the same simulated paths, so they are not independent. The exact engine itself is tested separately against a brute-force enumeration of the simulator's own code;
+- shows that the 10p half-spread used in the studies is far below the profit-maximising spread (77–83p);
+- shows that at the best spread, skew adds a little in balanced and informed markets (£1.45 and £1.05) and most in the buyer-heavy markets (£4.93 and £9.04).
 
 | Market | Expected P&L at 10p | Best half-spread | Expected P&L at best |
 |---|---|---|---|
@@ -24,7 +24,7 @@ It is a synthetic model, not a backtest on market data.
 | 80% buyers | £3.32 | 81p | £16.71 |
 | 80% buyers + upward drift | −£7.01 | 83p | £6.80 |
 
-The optimum has a one-line explanation. A quote h pence from the reference fills with probability (151 − h)/301 and earns h − 1 after the 1p fee. Maximising (h − 1)(151 − h) gives h = 76.
+The optimum has a one-line explanation. Ignoring inventory, a quote h pence from the reference fills an ordinary customer with probability (151 − h)/301 and earns h − 1 after the 1p fee. Maximising (h − 1)(151 − h) gives h = 76; the exact optimum is a little higher because wider quotes also mean less inventory and lower closing costs.
 
 ![Expected P&L against half-spread](report/exact_spread.png)
 
@@ -37,15 +37,15 @@ Each step:
 3. One customer arrives. An ordinary customer has a random limit within ±150p of the reference. An informed customer knows the next price move and trades only when it will hurt the market maker.
 4. The reference price moves by a coin-flip ±30p, plus optional drift.
 
-At the end, any remaining inventory is closed at a cost. Accounting is in integer pence, and every step's P&L is reconciled exactly as execution edge + inventory × price change − fees.
+At the end, any remaining inventory is closed at a cost. Accounting is in integer pence. The attribution module splits P&L into execution edge + inventory × price change − fees − closing costs and checks that every step reconciles exactly with the ledger; the tests run this check across all four markets.
 
 ## Methodology
 
-- **Paired experiments.** Both strategies see identical prices and customers, so any difference comes from the strategy rather than luck.
+- **Paired experiments.** Both strategies see identical prices and customers, so a difference cannot come from one strategy seeing luckier scenarios. Sampling noise remains and is reported as a confidence interval.
 - **Development/evaluation split.** The selection study chose a skew on 300 development runs per market, saved the choice, then tested it on 500 fresh runs. The risk study was designed afterwards and is labelled as such.
 - **Saved protocols.** Each study saves its settings, seeds and SHA-256 hashes of the source files before running. Study scripts refuse to overwrite existing results.
-- **Report checks.** The report builders recompute every statistic from the saved per-run records and fail on any mismatch.
-- **Exact-engine check.** The exact engine is tested against a brute-force enumeration of every possible history, run through the simulator's own functions.
+- **Report checks.** The main report builder recomputes every risk-study statistic and interval from the saved per-run records; the exact-analysis builder spot-checks saved values by recomputing them with the exact engine. Both fail on any mismatch.
+- **Exact-engine check.** The exact engine is tested against a brute-force enumeration of every possible two-step history, run through the simulator's own functions, and matches to 12 decimal places.
 
 ## Repository layout
 
