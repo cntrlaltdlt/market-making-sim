@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mmsim"
+version = "1.0.0"
+description = "Market-making simulator: paired Monte Carlo studies and exact Markov-chain P&L analysis of inventory skew, informed flow and the spread"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Anant Jain" }]
+dependencies = ["numpy>=2.0"]
+
+[project.optional-dependencies]
+# Only needed to rebuild the reports and figures.
+reports = ["matplotlib>=3.8"]
+
+[project.urls]
+Repository = "https://github.com/cntrlaltdlt/market-making-sim"
+
+[tool.setuptools]
+packages = ["mmsim"]

@@ -9,11 +9,11 @@ It is a synthetic model, not a backtest on market data.
 
 ## Quickstart
 
-Python 3.12+. Setup, then one command that runs in about a second:
+Python 3.12+. From the repository folder, install the package, then run one command that takes about a second:
 
 ```sh
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 python -m examples.quickstart
 ```
 
@@ -90,16 +90,15 @@ report/         reports and figures
 
 ## Running it
 
-Python 3.12+.
+`pip install -e .` installs the `mmsim` package (and NumPy), so `import mmsim` works from any folder. Add the `reports` extra to rebuild the figures, or install the exact versions used for the saved results:
 
 ```sh
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+pip install -e ".[reports]"          # package + Matplotlib
+pip install -r requirements.txt      # or: the pinned versions behind the saved results
 python -m unittest discover -v
 ```
 
-Reproduce the studies into new folders (the saved results are in `results/`):
+Run the studies and examples from the repository folder. Reproduce the studies into new folders (the saved results are in `results/`):
 
 ```sh
 python -m studies.selection_study --output results/my_selection
