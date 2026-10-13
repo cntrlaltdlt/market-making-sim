@@ -37,6 +37,29 @@ It simulates the market with informed customers, explains the result, checks it 
 
 The full studies below take a few minutes; see [Running it](#running-it).
 
+## How the model works
+
+Each run is 200 steps. The market maker starts flat, the reference price starts at £100, and every step follows the same loop:
+
+```mermaid
+flowchart TD
+    A["<b>Quote</b><br/>reference ± half-spread<br/>minus inventory × skew"] --> B["<b>Position limit</b><br/>pull a quote that would<br/>breach ±3 shares"]
+    B --> C{"<b>Customer</b>"}
+    C -->|ordinary| D["Random limit<br/>within ±150p"]
+    C -->|"informed (25% in<br/>the informed market)"| E["Knows the next move;<br/>trades only if it hurts us"]
+    D --> F{"Our quote at least<br/>as good as their limit?"}
+    E --> F
+    F -->|yes| G["<b>Trade</b> one share<br/>at our quote, 1p fee"]
+    F -->|no| I
+    G --> I["<b>Price moves</b> ±30p (+ drift)<br/>P&L marked to market"]
+    I -->|"next step<br/>(200 per run)"| A
+    I -->|end of run| J["<b>Close</b> inventory at<br/>10p cost + fee → final P&L"]
+```
+
+The four markets differ in the customer mix and the price drift: balanced (50% buyers), 25% informed, 80% buyers, and 80% buyers with the price drifting up 2p a step.
+
+Accounting is in integer pence. The attribution module splits P&L into execution edge + inventory × price change − fees − closing costs and checks that every step reconciles exactly with the ledger; the tests run this check across all four markets.
+
 ## Results
 
 **Monte Carlo studies ([report](report/REPORT.md)).** At a 10p half-spread, fixed quotes had the highest sample mean P&L in all four markets. More skew reduced inventory and P&L variability but did not consistently reduce losing runs or tail losses. With informed customers, the market maker lost money despite a positive edge at execution: the P&L attribution shows that adverse price moves after informed trades outweigh that edge.
@@ -57,17 +80,6 @@ The full studies below take a few minutes; see [Running it](#running-it).
 The optimum has a one-line explanation. Ignoring inventory, a quote h pence from the reference fills an ordinary customer with probability (151 − h)/301 and earns h − 1 after the 1p fee. Maximising (h − 1)(151 − h) gives h = 76; the exact optimum is a little higher because wider quotes also mean less inventory and lower closing costs.
 
 ![Expected P&L against half-spread](report/exact_spread.png)
-
-## How the model works
-
-Each step:
-
-1. The market maker quotes `reference ± half-spread`, shifted by `−inventory × skew`.
-2. Any quote that would take inventory past the position limit is withdrawn.
-3. One customer arrives. An ordinary customer has a random limit within ±150p of the reference. An informed customer knows the next price move and trades only when it will hurt the market maker.
-4. The reference price moves by a coin-flip ±30p, plus optional drift.
-
-At the end, any remaining inventory is closed at a cost. Accounting is in integer pence. The attribution module splits P&L into execution edge + inventory × price change − fees − closing costs and checks that every step reconciles exactly with the ledger; the tests run this check across all four markets.
 
 ## Methodology
 
