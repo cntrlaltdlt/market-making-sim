@@ -1,0 +1,69 @@
+{
+  "purpose": "Descriptive profit-risk follow-up designed after inspecting the selection study (results/selection_v1)",
+  "candidates": [
+    0,
+    2,
+    5,
+    10
+  ],
+  "markets": [
+    {
+      "name": "balanced",
+      "settings": {}
+    },
+    {
+      "name": "informed",
+      "settings": {
+        "informed_fraction": 0.25
+      }
+    },
+    {
+      "name": "buyers",
+      "settings": {
+        "buy_probability": 0.8
+      }
+    },
+    {
+      "name": "buyers_and_rising",
+      "settings": {
+        "buy_probability": 0.8,
+        "drift_pence": 2
+      }
+    }
+  ],
+  "common": {
+    "n_steps": 200,
+    "half_spread_pence": 10,
+    "move_pence": 30,
+    "fee_pence_per_share": 1,
+    "exit_cost_pence_per_share": 10,
+    "position_limit": 3
+  },
+  "seeds": [
+    121001,
+    121002,
+    121003,
+    121004
+  ],
+  "runs_per_market": 500,
+  "selection_rule": "None: report all candidates and markets",
+  "metrics": [
+    "mean_pnl",
+    "pnl_standard_deviation",
+    "loss_fraction",
+    "worst_tail_mean_pnl",
+    "mean_absolute_inventory",
+    "mean_trades"
+  ],
+  "uncertainty": "Approximate Bonferroni simultaneous intervals for 12 paired mean differences only; risk estimates descriptive",
+  "source_sha256": {
+    "studies/risk_study.py": "512826ac9f113370d19415b7a4522a2c1709606a7ce4d7a0c8fb56c9cf43c5ae",
+    "studies/selection_study.py": "c270311a7b126ce059f4bf4d8340814c04cf2a75760a2549f38a75f58da608f2",
+    "mmsim/experiments.py": "084346256614615810ae6ef8c948602a826b70c561d40d147026ba7a73d865ac",
+    "mmsim/simulation.py": "6292ddd0278a9394f852da3c66cf05b70650ab363b96deed64f2d93b5cdff335",
+    "mmsim/customers.py": "4cb7b2e1e62a9fa62ca4b36c003f272cd6df2bf9d02353a48c0c025973ad9de6",
+    "mmsim/strategies.py": "8d7269f98c9798025ee4562faf61b90a608dc66bfe403cacf18ed5c14241bb7b",
+    "mmsim/prices.py": "47d8d840256ec4078e58c53e71275a60db7434b1702af7a9b97b494554ee21bc",
+    "mmsim/ledger.py": "9fe2c0b746446861e90788222fc8225b85214c37f1c6763ee36b51f8eb663f88"
+  }
+}

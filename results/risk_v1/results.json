@@ -1,0 +1,398 @@
+{
+  "balanced": {
+    "0": {
+      "statistics": {
+        "mean_pnl": 660.068,
+        "pnl_standard_deviation": 882.1659917782482,
+        "loss_fraction": 0.24,
+        "worst_tail_mean_pnl": -1064.72,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.67729,
+        "mean_trades": 80.46
+      },
+      "paired": {
+        "mean_pnl_difference": 0,
+        "standard_error": 0.0,
+        "approx_95_mean_interval": [
+          0.0,
+          0.0
+        ],
+        "adjusted_win_fraction": 0.0,
+        "tie_fraction": 1.0
+      },
+      "family_95_mean_interval": null
+    },
+    "2": {
+      "statistics": {
+        "mean_pnl": 605.68,
+        "pnl_standard_deviation": 855.8318771838357,
+        "loss_fraction": 0.242,
+        "worst_tail_mean_pnl": -1068.88,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.63224,
+        "mean_trades": 81.896
+      },
+      "paired": {
+        "mean_pnl_difference": -54.388,
+        "standard_error": 7.756643471753474,
+        "approx_95_mean_interval": [
+          -69.5910212046368,
+          -39.18497879536319
+        ],
+        "adjusted_win_fraction": 0.264,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -76.61280212408508,
+        -32.16319787591492
+      ]
+    },
+    "5": {
+      "statistics": {
+        "mean_pnl": 510.454,
+        "pnl_standard_deviation": 824.6397232916087,
+        "loss_fraction": 0.266,
+        "worst_tail_mean_pnl": -1101.96,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.57155,
+        "mean_trades": 83.808
+      },
+      "paired": {
+        "mean_pnl_difference": -149.614,
+        "standard_error": 11.26083579729797,
+        "approx_95_mean_interval": [
+          -171.68523816270402,
+          -127.54276183729598
+        ],
+        "adjusted_win_fraction": 0.21,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -181.87922506263718,
+        -117.34877493736283
+      ]
+    },
+    "10": {
+      "statistics": {
+        "mean_pnl": 310.84,
+        "pnl_standard_deviation": 781.5941255884084,
+        "loss_fraction": 0.362,
+        "worst_tail_mean_pnl": -1214.16,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.46773,
+        "mean_trades": 86.4
+      },
+      "paired": {
+        "mean_pnl_difference": -349.228,
+        "standard_error": 14.993583398181917,
+        "approx_95_mean_interval": [
+          -378.61542346043655,
+          -319.8405765395635
+        ],
+        "adjusted_win_fraction": 0.14,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -392.18851834392615,
+        -306.26748165607387
+      ]
+    }
+  },
+  "informed": {
+    "0": {
+      "statistics": {
+        "mean_pnl": -456.712,
+        "pnl_standard_deviation": 823.8483168364845,
+        "loss_fraction": 0.7,
+        "worst_tail_mean_pnl": -2182.48,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.69668,
+        "mean_trades": 104.092
+      },
+      "paired": {
+        "mean_pnl_difference": 0,
+        "standard_error": 0.0,
+        "approx_95_mean_interval": [
+          0.0,
+          0.0
+        ],
+        "adjusted_win_fraction": 0.0,
+        "tie_fraction": 1.0
+      },
+      "family_95_mean_interval": null
+    },
+    "2": {
+      "statistics": {
+        "mean_pnl": -566.312,
+        "pnl_standard_deviation": 814.9592651560736,
+        "loss_fraction": 0.754,
+        "worst_tail_mean_pnl": -2239.28,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.67096,
+        "mean_trades": 105.092
+      },
+      "paired": {
+        "mean_pnl_difference": -109.6,
+        "standard_error": 5.534871779113085,
+        "approx_95_mean_interval": [
+          -120.44834868706164,
+          -98.75165131293835
+        ],
+        "adjusted_win_fraction": 0.118,
+        "tie_fraction": 0.002
+      },
+      "family_95_mean_interval": [
+        -125.45884803406634,
+        -93.74115196593365
+      ]
+    },
+    "5": {
+      "statistics": {
+        "mean_pnl": -717.732,
+        "pnl_standard_deviation": 796.5325457059099,
+        "loss_fraction": 0.832,
+        "worst_tail_mean_pnl": -2350.28,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.63452,
+        "mean_trades": 106.654
+      },
+      "paired": {
+        "mean_pnl_difference": -261.02,
+        "standard_error": 8.103024942973637,
+        "approx_95_mean_interval": [
+          -276.9019288882283,
+          -245.13807111177167
+        ],
+        "adjusted_win_fraction": 0.064,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -284.2372751809365,
+        -237.8027248190635
+      ]
+    },
+    "10": {
+      "statistics": {
+        "mean_pnl": -997.12,
+        "pnl_standard_deviation": 764.0395818052427,
+        "loss_fraction": 0.91,
+        "worst_tail_mean_pnl": -2560.32,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 1.56495,
+        "mean_trades": 108.894
+      },
+      "paired": {
+        "mean_pnl_difference": -540.408,
+        "standard_error": 11.959227454757654,
+        "approx_95_mean_interval": [
+          -563.8480858113251,
+          -516.967914188675
+        ],
+        "adjusted_win_fraction": 0.02,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -574.674298909679,
+        -506.141701090321
+      ]
+    }
+  },
+  "buyers": {
+    "0": {
+      "statistics": {
+        "mean_pnl": 273.16,
+        "pnl_standard_deviation": 1154.458402371264,
+        "loss_fraction": 0.404,
+        "worst_tail_mean_pnl": -2133.2,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.61491,
+        "mean_trades": 39.584
+      },
+      "paired": {
+        "mean_pnl_difference": 0,
+        "standard_error": 0.0,
+        "approx_95_mean_interval": [
+          0.0,
+          0.0
+        ],
+        "adjusted_win_fraction": 0.0,
+        "tie_fraction": 1.0
+      },
+      "family_95_mean_interval": null
+    },
+    "2": {
+      "statistics": {
+        "mean_pnl": 251.252,
+        "pnl_standard_deviation": 1144.4052880963307,
+        "loss_fraction": 0.4,
+        "worst_tail_mean_pnl": -2159.2,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.59363,
+        "mean_trades": 40.866
+      },
+      "paired": {
+        "mean_pnl_difference": -21.908,
+        "standard_error": 3.0535210911516915,
+        "approx_95_mean_interval": [
+          -27.892901338657317,
+          -15.923098661342685
+        ],
+        "adjusted_win_fraction": 0.242,
+        "tie_fraction": 0.02
+      },
+      "family_95_mean_interval": [
+        -30.6571325699962,
+        -13.158867430003804
+      ]
+    },
+    "5": {
+      "statistics": {
+        "mean_pnl": 210.614,
+        "pnl_standard_deviation": 1137.6837053552547,
+        "loss_fraction": 0.42,
+        "worst_tail_mean_pnl": -2171.76,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.5576,
+        "mean_trades": 42.836
+      },
+      "paired": {
+        "mean_pnl_difference": -62.546,
+        "standard_error": 4.967353921149158,
+        "approx_95_mean_interval": [
+          -72.28201368545234,
+          -52.80998631454765
+        ],
+        "adjusted_win_fraction": 0.222,
+        "tie_fraction": 0.002
+      },
+      "family_95_mean_interval": [
+        -76.77876168098537,
+        -48.31323831901463
+      ]
+    },
+    "10": {
+      "statistics": {
+        "mean_pnl": 138.752,
+        "pnl_standard_deviation": 1108.9728382643175,
+        "loss_fraction": 0.448,
+        "worst_tail_mean_pnl": -2170.88,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.4934,
+        "mean_trades": 46.076
+      },
+      "paired": {
+        "mean_pnl_difference": -134.408,
+        "standard_error": 7.224100381684164,
+        "approx_95_mean_interval": [
+          -148.56723674810095,
+          -120.24876325189902
+        ],
+        "adjusted_win_fraction": 0.19,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -155.10692758280445,
+        -113.70907241719553
+      ]
+    }
+  },
+  "buyers_and_rising": {
+    "0": {
+      "statistics": {
+        "mean_pnl": -680.252,
+        "pnl_standard_deviation": 1124.576496771198,
+        "loss_fraction": 0.732,
+        "worst_tail_mean_pnl": -2978.64,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.60745,
+        "mean_trades": 39.924
+      },
+      "paired": {
+        "mean_pnl_difference": 0,
+        "standard_error": 0.0,
+        "approx_95_mean_interval": [
+          0.0,
+          0.0
+        ],
+        "adjusted_win_fraction": 0.0,
+        "tie_fraction": 1.0
+      },
+      "family_95_mean_interval": null
+    },
+    "2": {
+      "statistics": {
+        "mean_pnl": -692.872,
+        "pnl_standard_deviation": 1119.1515500592402,
+        "loss_fraction": 0.736,
+        "worst_tail_mean_pnl": -2967.12,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.58336,
+        "mean_trades": 41.316
+      },
+      "paired": {
+        "mean_pnl_difference": -12.62,
+        "standard_error": 3.3313015985769527,
+        "approx_95_mean_interval": [
+          -19.14935113321083,
+          -6.090648866789172
+        ],
+        "adjusted_win_fraction": 0.322,
+        "tie_fraction": 0.01
+      },
+      "family_95_mean_interval": [
+        -22.165046012961078,
+        -3.074953987038919
+      ]
+    },
+    "5": {
+      "statistics": {
+        "mean_pnl": -713.386,
+        "pnl_standard_deviation": 1100.911726826692,
+        "loss_fraction": 0.74,
+        "worst_tail_mean_pnl": -2956,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.54969,
+        "mean_trades": 43.334
+      },
+      "paired": {
+        "mean_pnl_difference": -33.134,
+        "standard_error": 5.180014787082058,
+        "approx_95_mean_interval": [
+          -43.28682898268083,
+          -22.981171017319166
+        ],
+        "adjusted_win_fraction": 0.342,
+        "tie_fraction": 0.0
+      },
+      "family_95_mean_interval": [
+        -47.97609040443472,
+        -18.29190959556528
+      ]
+    },
+    "10": {
+      "statistics": {
+        "mean_pnl": -762.3,
+        "pnl_standard_deviation": 1078.568121346431,
+        "loss_fraction": 0.76,
+        "worst_tail_mean_pnl": -2967.68,
+        "worst_tail_count": 25,
+        "mean_absolute_inventory": 2.48639,
+        "mean_trades": 46.334
+      },
+      "paired": {
+        "mean_pnl_difference": -82.048,
+        "standard_error": 7.459996950468679,
+        "approx_95_mean_interval": [
+          -96.66959402291862,
+          -67.42640597708139
+        ],
+        "adjusted_win_fraction": 0.264,
+        "tie_fraction": 0.008
+      },
+      "family_95_mean_interval": [
+        -103.42283264174888,
+        -60.67316735825112
+      ]
+    }
+  }
+}
