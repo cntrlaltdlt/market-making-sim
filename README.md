@@ -7,6 +7,36 @@ A Python simulation of a market maker who posts a bid and an ask each step, trad
 
 It is a synthetic model, not a backtest on market data.
 
+## Quickstart
+
+Python 3.12+. Setup, then one command that runs in about a second:
+
+```sh
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python -m examples.quickstart
+```
+
+It simulates the market with informed customers, explains the result, checks it against the exact calculation and then finds a better spread:
+
+```
+1. Simulate 300 runs of 200 steps: fixed 10p quotes, 25% informed customers
+   mean final P&L £-3.77 (standard error £0.50); 67% of runs lose money
+
+2. Why: the P&L attribution, averaged over runs
+   execution edge    £10.38   (earned at the moment of each trade)
+   inventory P&L    £-12.91   (prices then move against the position)
+   fees and exit     £-1.23
+
+3. Check: the exact expected value, computed as a Markov chain (no sampling)
+   exact mean £-3.79, exact chance of a loss 67.1%; simulated mean is +0.0 standard errors away
+
+4. Improve: exact expected P&L for every half-spread from 1p to 150p
+   best half-spread 77p: expected P&L £24.27 (vs £-3.79 at 10p); above 30p informed customers never trade
+```
+
+The full studies below take a few minutes; see [Running it](#running-it).
+
 ## Results
 
 **Monte Carlo studies ([report](report/REPORT.md)).** At a 10p half-spread, fixed quotes had the highest sample mean P&L in all four markets. More skew reduced inventory and P&L variability but did not consistently reduce losing runs or tail losses. With informed customers, the market maker lost money despite a positive edge at execution: the P&L attribution shows that adverse price moves after informed trades outweigh that edge.
@@ -79,7 +109,7 @@ python -m studies.build_report
 python -m studies.exact_report
 ```
 
-Examples run the same way, e.g. `python -m examples.single_run` or `python -m examples.informed_flow`.
+Examples run the same way, e.g. `python -m examples.quickstart`, `python -m examples.single_run` or `python -m examples.informed_flow`.
 
 ## Limitations
 
